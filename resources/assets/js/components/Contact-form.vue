@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="send" method="post" action="/send">
+	<form @submit.prevent="send" method="post" :action="action">
 
 		<div v-if="success" class="alert alert-success">
 			Terima kasih. Pesan berhasil dikirim.
@@ -34,6 +34,10 @@
 
 <script>
 	export default {
+		props: {
+			action: ''
+		},
+
 		data() {
 			return {
 				success: false,
@@ -51,7 +55,7 @@
 			send(e) {
 				axios.post(e.target.action, this.state).then(response => {
 					this.success = response.data.success;
-					
+
 					if(response.data.success == true) {
 						this.errors = [];
 

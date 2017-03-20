@@ -8,7 +8,7 @@
                 <div class="panel-heading">Formulir Kontak</div>
 
                 <div class="panel-body">
-                    <contact-form></contact-form>
+                    <contact-form action="{{ route('contact.send') }}"></contact-form>
                 </div>
             </div>
         </div>
